@@ -31,6 +31,8 @@ prompt=ChatPromptTemplate.from_messages(
 st.title('LangChain Demo with LLAMA2')
 input_text=st.text_input("Search the topic you want")
 
+
+
 # Ollama LLAMA2
 llm=Ollama(model="llama2")
 output_parser=StrOutputParser()
