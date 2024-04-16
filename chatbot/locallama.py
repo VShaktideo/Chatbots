@@ -34,7 +34,7 @@ input_text=st.text_input("Search the topic you want")
 
 
 # Ollama LLAMA2
-llm=Ollama(model="llama2")
+llm=Ollama(model="llama2",base_url="http://ollama-container:11434", verbose=True)
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 
