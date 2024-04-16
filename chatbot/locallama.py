@@ -35,7 +35,7 @@ input_text=st.text_input("Search the topic you want")
 
 
 # Ollama LLAMA2
-llm=Ollama(model="llama2", CallbackManager([StreamingStdOutCallbackHandler()]))
+llm=Ollama(model="llama2", callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 
