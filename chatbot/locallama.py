@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.llms import Ollama
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 import ssl
 from urllib3 import poolmanager
 
@@ -34,7 +35,7 @@ input_text=st.text_input("Search the topic you want")
 
 
 # Ollama LLAMA2
-llm=Ollama(model="llama2",base_url="http://ollama-container:11434", verbose=True)
+llm=Ollama(model="llama2", CallbackManager([StreamingStdOutCallbackHandler()]))
 output_parser=StrOutputParser()
 chain=prompt|llm|output_parser
 
